@@ -1,23 +1,21 @@
+from ultralytics import YOLO
 import os
 
-directory = '/Users/sumanthpagadala/Desktop/House_Satt_Dataset/Train'
+model = YOLO("best.pt")
 
-image_files = []
-json_files = []
+image_directory = "/Users/sumanthpagadala/Desktop/House_Satt_Dataset/YOLODataset/images/val"
 
-for filename in os.listdir(directory):
-    if filename.endswith('.jpg') or filename.endswith('.png'):
-        image_files.append(os.path.splitext(filename)[0])
-    elif filename.endswith('.json'):
-        json_files.append(os.path.splitext(filename)[0])
+image_files = [os.path.join(image_directory, file) for file in os.listdir(image_directory) if file.endswith(('.png', '.jpg', '.jpeg'))]
 
-image_set = set(image_files)
-json_set = set(json_files)
-
-extra_json_files = json_set - image_set
-
-print("Extra JSON files:", extra_json_files)
-
-
-
-
+# Run prediction on each image
+for image_path in image_files:
+    model.predict(
+        source=image_path,
+        show=True,
+        save=True,
+        hide_labels=False,
+        hide_conf=False,
+        box=False,
+        conf=0.5,
+        save_crop=False
+    )
