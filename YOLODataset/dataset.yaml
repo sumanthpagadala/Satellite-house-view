@@ -1,4 +1,0 @@
-train: House_Satt_dataset/Train/YOLODataset/images/train/
-val: House_Satt_dataset/Train/YOLODataset/images/val/
-nc: 1
-names: ["top_view"]
