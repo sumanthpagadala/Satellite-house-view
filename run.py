@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import os
 
-model = YOLO("best.pt")
+model = YOLO("Satellite-view_seg.pt")
 
 image_directory = "/Users/sumanthpagadala/Desktop/House_Satt_Dataset/YOLODataset/images/val"
 
