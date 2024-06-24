@@ -1,0 +1,4 @@
+train: /Users/sumanthpagadala/Desktop/House_Satt_Dataset/Train/YOLODataset/images/train/
+val: /Users/sumanthpagadala/Desktop/House_Satt_Dataset/Train/YOLODataset/images/val/
+nc: 1
+names: ["top_view"]
